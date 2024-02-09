@@ -13,6 +13,7 @@ namespace VegetablesAndFruits
 
         void DisplayOfAllInformation()
         {
+            Console.Clear();
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
                 conn.Open();
@@ -29,10 +30,13 @@ namespace VegetablesAndFruits
                 }
 
                 conn.Close();
+                Console.ReadLine();
+                Console.Clear();
             }
         }
        void DisplayOfAllNames()
        {
+            Console.Clear();
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
                 conn.Open();
@@ -49,10 +53,13 @@ namespace VegetablesAndFruits
                 }
 
                 conn.Close();
+                Console.ReadLine();
+                Console.Clear();
             }
        }
        void DisplayAllColors()
         {
+            Console.Clear();
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
                 conn.Open();
@@ -69,10 +76,13 @@ namespace VegetablesAndFruits
                 }
 
                 conn.Close();
+                Console.ReadLine();
+                Console.Clear();
             }
         }
         void DisplayTheMaximumCalorie()
         {
+            Console.Clear();
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
                 conn.Open();
@@ -90,10 +100,13 @@ namespace VegetablesAndFruits
                 }
 
                 conn.Close();
+                Console.ReadLine();
+                Console.Clear();
             }
         }
         void DisplayTheMinimumCalorie()
         {
+            Console.Clear();
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
                 conn.Open();
@@ -111,10 +124,13 @@ namespace VegetablesAndFruits
                 }
 
                 conn.Close();
+                Console.ReadLine();
+                Console.Clear();
             }
         }
         void DisplayTheAverageCalorie()
         {
+            Console.Clear();
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
                 conn.Open();
@@ -132,6 +148,8 @@ namespace VegetablesAndFruits
                 }
 
                 conn.Close();
+                Console.ReadLine();
+                Console.Clear();
             }
         }
 
@@ -144,9 +162,10 @@ namespace VegetablesAndFruits
 
             var Program = new Program();
 
-            int i = 2;
+            int i = -1;
             while (i != 0)
             {
+                Console.Clear();
                 Console.WriteLine("Enter the comand \n1 - connect | 0 - exit\n");
                 Console.Write("Comand: ");
                 i = Int32.Parse(Console.ReadLine());
@@ -164,12 +183,44 @@ namespace VegetablesAndFruits
 
                         }
                         Console.WriteLine();
-                        Console.WriteLine("Database opened succsesful!");
                         conn.Close();
                     }
-                    
 
-                    i = 0;
+                    Console.Clear();
+                    Console.WriteLine("Database opened succsesful!\n");
+                    
+                    int j = -1;
+                    while (j != 0)
+                    {
+                        Console.WriteLine("Enter the comand \n1 - Display Of All Information  | 2 - Display Of All Names        | 3 - Display All Colors");
+                        Console.WriteLine("4 - Display The Maximum Calorie | 5 - Display The Minimum Calorie | 6 - Display The Average Calorie\n0 - Exit\n");
+                        Console.Write("Comand: ");
+                        j = Int32.Parse(Console.ReadLine());
+                        switch(j)
+                        {
+                            case 1: Program.DisplayOfAllInformation();
+                                break;
+                            case 2:
+                                Program.DisplayOfAllNames();
+                                break;
+                            case 3:
+                                Program.DisplayAllColors();
+                                break;
+                            case 4:
+                                Program.DisplayTheMaximumCalorie();
+                                break;
+                            case 5:
+                                Program.DisplayTheMinimumCalorie();
+                                break;
+                            case 6:
+                                Program.DisplayTheAverageCalorie();
+                                break;
+                            default:
+                                j = 0;
+                                break;
+                        } 
+                    }
+                    i = -1;
                 }
             }
 
